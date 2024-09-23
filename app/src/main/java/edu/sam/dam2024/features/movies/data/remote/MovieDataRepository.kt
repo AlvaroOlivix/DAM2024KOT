@@ -6,11 +6,9 @@ import edu.sam.dam2024.features.movies.domain.MovieRepository
 /*
 Naming: Modelo + DataRepository
  */
-class MovieDataRepository(private val remoteDataSource: MovieMockRemoteDataSource): MovieRepository {
 
+class MovieDataRepository(private val remoteDataSource: MovieMockRemoteDataSource): MovieRepository {
     //Dame la lista de películas
-    override fun getMovies(): List<Movie> {
-        TODO("Not yet implemented")
-    }
+    override fun getMovies(): List<Movie> = remoteDataSource.getMovies()
 
 }
