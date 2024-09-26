@@ -1,5 +1,6 @@
 package edu.sam.dam2024.features.supers.data.remote
 
+import edu.sam.dam2024.features.movies.domain.Movie
 import edu.sam.dam2024.features.supers.domain.Super
 
 // Esta clase es un mock de la fuente de datos remota
@@ -26,7 +27,7 @@ class SuperMockRemoteDataSource {
                 "Emp",
                 "image2",
 
-            ),
+                ),
             Super(
                 "3",
                 "Experiment3",
@@ -48,5 +49,9 @@ class SuperMockRemoteDataSource {
                 "image4"
             )
         )
+    }
+
+    fun getSuper(id: String): Super? {
+        return getSupers().firstOrNull { it.id == id }
     }
 }

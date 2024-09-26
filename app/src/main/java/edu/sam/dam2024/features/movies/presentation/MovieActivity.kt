@@ -6,6 +6,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import edu.sam.dam2024.R
+import edu.sam.dam2024.features.movies.data.local.MovieXmlLocalDataSource
 import edu.sam.dam2024.features.movies.domain.Movie
 
 class MovieActivity : AppCompatActivity() {
@@ -21,6 +22,16 @@ class MovieActivity : AppCompatActivity() {
         // FFF
         viewModel.itemSelected(movies.first().id)
         // FFF
+
+        testxml()
+    }
+
+    private fun testxml() {
+        val xmlDataSource = MovieXmlLocalDataSource(this)
+        val movie = viewModel.itemSelected("1")
+        movie?.let {
+            xmlDataSource.save(it)
+        }
     }
 
     private fun bindData(movies: List<Movie>) {
@@ -28,19 +39,14 @@ class MovieActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.movie_id_1).text = movies[0].id
         findViewById<TextView>(R.id.movie_id_1).text = movies[0].title
-        findViewById<LinearLayout>(R.id.layaout_1).setOnClickListener {
-           val movie1: Movie? = viewModel.itemSelected(movies[0].id)
+
+        findViewById<LinearLayout>(R.id.layout_1).setOnClickListener {
+            val movie1: Movie? = viewModel.itemSelected(movies[0].id)
             movie1?.let {
                 Log.d("@dev", "Pelicula Seleccionada: ${it.title}")
                 // $it Imprime el objeto entero
             }
         }
-
-        findViewById<TextView>(R.id.movie_id_2).text = movies[1].id
-        findViewById<TextView>(R.id.movie_id_2).text = movies[1].title
-
-        findViewById<TextView>(R.id.movie_id_3).text = movies[2].id
-        findViewById<TextView>(R.id.movie_id_3).text = movies[2].title
     }
 
 

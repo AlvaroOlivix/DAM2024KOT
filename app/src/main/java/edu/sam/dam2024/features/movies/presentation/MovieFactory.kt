@@ -7,8 +7,8 @@ import edu.sam.dam2024.features.movies.domain.GetMoviesUseCase
 
 class MovieFactory {
     fun buildViewModel(): MovieViewModel =
-        MovieViewModel(GetMoviesUseCase(MovieDataRepository(MovieMockRemoteDataSource())),
-            GetMovieUseCase(MovieDataRepository(MovieMockRemoteDataSource()))
+        MovieViewModel(GetMovieUseCase(MovieDataRepository(MovieMockRemoteDataSource())),
+            GetMoviesUseCase(MovieDataRepository(MovieMockRemoteDataSource()))
         )
 
 }

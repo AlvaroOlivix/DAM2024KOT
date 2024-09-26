@@ -1,5 +1,6 @@
-package edu.sam.dam2024.features.supers.data.remote
+package edu.sam.dam2024.features.supers.data
 
+import edu.sam.dam2024.features.supers.data.remote.SuperMockRemoteDataSource
 import edu.sam.dam2024.features.supers.domain.Super
 import edu.sam.dam2024.features.supers.domain.SuperRepository
 
@@ -11,6 +12,10 @@ class SuperDataRepository(private val remoteDataSource: SuperMockRemoteDataSourc
     //Devuelve la lista de supers
     override fun getSupers(): List<Super> {
         return remoteDataSource.getSupers()
+    }
+
+    override fun getSuper(id: String): Super? {
+        return remoteDataSource.getSuper(id)
     }
 
 }
