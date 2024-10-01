@@ -5,7 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".features.movies.presentation.MovieActivity">
+    tools:context=".features.movies.presentation.MoviesActivity">
+
+
+
+
+
+
+
 
     <!-- Fila 1 -->
     <LinearLayout
@@ -17,7 +24,6 @@
 
         <TextView
             android:id="@+id/movie_id_1"
-            android:text="@string/name_file_xml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -36,6 +42,7 @@
 
     <!-- Fila 2 -->
     <LinearLayout
+        android:id="@+id/layout_2"
         android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,11 +58,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp" />
+        <TextView
+            android:id="@+id/movie_poster_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp" />
 
     </LinearLayout>
 
     <!-- Fila 3 -->
     <LinearLayout
+        android:id="@+id/layout_3"
         android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,11 +84,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp" />
+        <TextView
+            android:id="@+id/movie_poster_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp" />
 
     </LinearLayout>
 
     <!-- Fila 4 -->
     <LinearLayout
+        android:id="@+id/layout_4"
         android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,6 +107,11 @@
 
         <TextView
             android:id="@+id/movie_title_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp" />
+        <TextView
+            android:id="@+id/movie_poster_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp" />

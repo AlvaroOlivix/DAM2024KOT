@@ -1,5 +1,6 @@
 package edu.sam.dam2024.features.movies.data
 
+import edu.sam.dam2024.features.movies.data.local.MovieXmlLocalDataSource
 import edu.sam.dam2024.features.movies.data.remote.MovieMockRemoteDataSource
 import edu.sam.dam2024.features.movies.domain.Movie
 import edu.sam.dam2024.features.movies.domain.MovieRepository
@@ -8,7 +9,8 @@ import edu.sam.dam2024.features.movies.domain.MovieRepository
 Naming: Modelo + DataRepository
  */
 
-class MovieDataRepository(private val mockRemoteDataSource: MovieMockRemoteDataSource) :
+class MovieDataRepository(private val mockRemoteDataSource: MovieMockRemoteDataSource,
+private val localDataSource: MovieXmlLocalDataSource) :
     MovieRepository {
     //Dame la lista de películas
 
