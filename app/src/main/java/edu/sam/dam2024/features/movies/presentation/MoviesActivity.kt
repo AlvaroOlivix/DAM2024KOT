@@ -24,21 +24,7 @@ class MoviesActivity : AppCompatActivity() {
         viewModel.itemSelected(movies.first().id)
         // FFF
 
-        testxml()
     }
-
-    private fun testxml() {
-        val xmlDataSource = MovieXmlLocalDataSource(this)
-        val movie = viewModel.itemSelected("1")
-        movie?.let {
-            xmlDataSource.save(it)
-        }
-        val movieSaved = xmlDataSource.findMovie()
-        Log.d("@dev", movieSaved.toString())
-
-        xmlDataSource.delete()
-    }
-
     private fun bindData(movies: List<Movie>) {
         // val textView_1 = findViewById<TextView>(R.id.movie_id_1)
         findViewById<TextView>(R.id.movie_id_1).text = movies[0].id

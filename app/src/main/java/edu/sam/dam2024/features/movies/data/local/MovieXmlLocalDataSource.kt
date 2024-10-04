@@ -23,32 +23,35 @@ class MovieXmlLocalDataSource(private val context: Context) {
     fun saveAll(movies: List<Movie>) {
         val editor = sharedPref.edit()
         movies.forEach { movie ->
-            editor.putString(movie.id, movie.title)
-            editor.apply()
+            editor.putString(movie.id, gson.toJson(movie))
+        }
+        editor.apply()
+
+    }
+
+    fun findAll(): List<Movie> {
+        val movies = ArrayList<Movie>()
+        val mapMovies = sharedPref.all
+        mapMovies.values.forEach { jsonMovie ->
+            val movie = gson.fromJson(jsonMovie as String, Movie::class.java)
+            movies.add(movie)
+        }
+        return movies
+    }
+
+    fun findById(movieId: String): Movie? {
+        return sharedPref.getString(movieId, null)?.let { jsonMovie ->
+            gson.fromJson(jsonMovie, Movie::class.java)
         }
     }
 
-    fun findMovie(): Movie {
-        /*
-        //Forma en java
 
-        val id = sharedPref.getString("id", " ")
-        val title = sharedPref.getString("title", " ")
-        val poster = sharedPref.getString("poster", " ")
-        return Movie(id!!, title!!, poster!!)
-        */
-        //Forma en kotlin
-        sharedPref.apply {
-            return Movie(
-                getString("id", " ")!!,
-                getString("title", " ")!!,
-                getString("poster", " ")!!
-            )
-        }
-    }
-
-    @SuppressLint("CommitPrefEdits")
     fun delete() {
-        sharedPref.edit().clear()
+        sharedPref.edit().clear().apply()
     }
+
+    fun delete(movieId: String) {
+        sharedPref.edit().remove(movieId).apply()
+    }
+
 }
