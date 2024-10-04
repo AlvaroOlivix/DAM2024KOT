@@ -8,12 +8,6 @@
     tools:context=".features.movies.presentation.MoviesActivity">
 
 
-
-
-
-
-
-
     <!-- Fila 1 -->
     <LinearLayout
         android:id="@+id/layout_1"
