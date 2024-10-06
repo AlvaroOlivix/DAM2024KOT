@@ -20,16 +20,31 @@ class MoviesActivity : AppCompatActivity() {
 
         movieFactory = MovieFactory(this)
         viewModel = movieFactory.buildViewModel()
-
-        //Creado observador, cuando uiState cambie se comunique automaticamente en MoviesActivity y ejecute el codigo dentro de movieObserver
-        val movieObserver = Observer<MoviesViewModel.UiState> {
-        }
-        viewModel.uiState.observe(this, movieObserver)
+        setupObserver()
+        viewModel.viewCreated()
 
 
     }
 
-    fun bindData(movies: List<Movie>) {
+    private fun setupObserver() {
+        val movieObserver = Observer<MoviesViewModel.UiState> { uiState ->
+            uiState.movies?.let { movies ->
+                bindData(movies)
+            }
+            uiState.errorApp?.let { error ->
+                showError(error)
+            }
+            if (uiState.isLoading) {
+                Log.d("@dev", "Loading...")
+            } else {
+                Log.d("@dev", "Loading...")
+            }
+        }
+        viewModel.uiState.observe(this, movieObserver)
+    }
+
+    private fun bindData(movies: List<Movie>) {
+
         findViewById<TextView>(R.id.movie_id_1).text = movies[0].id
         findViewById<TextView>(R.id.movie_id_1).text = movies[0].title
         findViewById<TextView>(R.id.movie_id_1).text = movies[0].poster
@@ -49,8 +64,14 @@ class MoviesActivity : AppCompatActivity() {
             navigateToMovieDetail(movies[2].id)
         }
     }
-    private fun showError(error: ErrorApp){
 
+    private fun showError(error: ErrorApp) {
+        when (error) {
+            ErrorApp.DataErrorApp -> TODO()
+            ErrorApp.InternetErrorApp -> TODO()
+            ErrorApp.ServerErrorApp -> TODO()
+            ErrorApp.UnknownErrorAPp -> TODO()
+        }
     }
 
     private fun navigateToMovieDetail(movieId: String) {

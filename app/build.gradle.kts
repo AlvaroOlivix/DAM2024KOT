@@ -42,9 +42,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.glide)
     implementation(libs.gson.serializable)
     implementation(libs.viewmodel.scope)
+    implementation(libs.glide)
 
 
     //Librerias de test

@@ -3,10 +3,14 @@ package edu.sam.dam2024.features.movies.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import edu.sam.dam2024.R
 import edu.sam.dam2024.features.movies.domain.Movie
+import edu.sam.dam2024.app.extensions.loadUrl
 
 class MovieDetailActivity : AppCompatActivity() {
     private lateinit var movieFactory: MovieFactory
@@ -15,14 +19,33 @@ class MovieDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
+        enableEdgeToEdge()
+
         movieFactory = MovieFactory(this)
         viewModel = movieFactory.buildMovieDetailViewModel()
 
+        setupObserver()
         getMovieId()?.let { movieId ->
-            viewModel.viewCreated(movieId)?.let { movie ->
+            viewModel.viewCreated(movieId)
+        }
+    }
+
+    private fun setupObserver() {
+        val movieObserver = Observer<MovieDetailViewModel.UiState> { uiState ->
+            uiState.movie?.let { movie ->
                 bindData(movie)
             }
+            uiState.errorApp?.let {
+
+            }
+            if (uiState.isLoading) {
+                Log.d("@dev", "Loading...")
+            } else {
+                Log.d("@dev", "Loading...")
+            }
         }
+        viewModel.uiState.observe(this, movieObserver)
+
     }
 
     private fun getMovieId(): String? {
@@ -30,7 +53,8 @@ class MovieDetailActivity : AppCompatActivity() {
     }
 
     private fun bindData(movie: Movie) {
-        val imageView = findViewById<ImageView>(R.id.movie_poster_3)
+        val imageView = findViewById<ImageView>(R.id.movie_poster_1)
+        imageView.loadUrl(movie.poster)
     }
 
     companion object {

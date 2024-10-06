@@ -26,6 +26,7 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 gson-serializable = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 viewmodel-scope = {group = "androidx.lifecycle",name="lifecycle-viewmodel-ktx", version.ref="viewmodel"}
 
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
