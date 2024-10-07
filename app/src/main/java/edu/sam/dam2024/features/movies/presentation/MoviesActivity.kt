@@ -20,10 +20,8 @@ class MoviesActivity : AppCompatActivity() {
 
         movieFactory = MovieFactory(this)
         viewModel = movieFactory.buildViewModel()
-        setupObserver()
         viewModel.viewCreated()
-
-
+        setupObserver()
     }
 
     private fun setupObserver() {

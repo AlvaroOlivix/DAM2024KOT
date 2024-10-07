@@ -6,6 +6,7 @@ import edu.sam.dam2024.features.movies.data.local.MovieXmlLocalDataSource
 import edu.sam.dam2024.features.movies.data.remote.MovieMockRemoteDataSource
 import edu.sam.dam2024.features.movies.domain.GetMovieUseCase
 import edu.sam.dam2024.features.movies.domain.GetMoviesUseCase
+
 //Una única factoría para cada tipo de clase.
 class MovieFactory(private val context: Context) {
     private val movieMockRemoteDataSource = MovieMockRemoteDataSource()

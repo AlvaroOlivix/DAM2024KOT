@@ -20,8 +20,6 @@ class SuperDetailActivity : AppCompatActivity() {
 
         getSuperId()?.let { superId ->
             viewModel.viewCreated(superId)?.let {
-                sup ->
-                bindData(sup)
             }
         }
 
