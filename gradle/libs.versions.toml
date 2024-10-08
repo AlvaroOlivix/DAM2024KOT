@@ -12,6 +12,9 @@ constraintlayout = "2.1.4"
 glide = "4.16.0"
 gson = "2.11.0"
 viewmodel = "2.4.0"
+navFragment = "2.8.2"
+nav-ui ="2.8.2"
+navigationComponent ="2.8.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,6 +28,10 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 gson-serializable = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 viewmodel-scope = {group = "androidx.lifecycle",name="lifecycle-viewmodel-ktx", version.ref="viewmodel"}
+navFragment = {group="androidx.navigation", name ="navigation-fragment", version.ref="navFragment"}
+nav-ui = { group= "androidx.navigation",name="navigation-ui",version.ref="nav-ui"}
+nav-fragment-ktx = { group="androidx.navigation", name="navigation-fragment-ktx", version.ref="navigationComponent"}
+
 
 
 [plugins]
