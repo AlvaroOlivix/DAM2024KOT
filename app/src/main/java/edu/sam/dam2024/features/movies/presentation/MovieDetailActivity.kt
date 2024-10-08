@@ -24,19 +24,19 @@ class MovieDetailActivity : AppCompatActivity() {
         movieFactory = MovieFactory(this)
         viewModel = movieFactory.buildMovieDetailViewModel()
 
-        setupObserver()
+
         getMovieId()?.let { movieId ->
             viewModel.viewCreated(movieId)
         }
+        setupObserver()
     }
 
     private fun setupObserver() {
         val movieObserver = Observer<MovieDetailViewModel.UiState> { uiState ->
-            uiState.movie?.let { movie ->
-                bindData(movie)
+            uiState.movie?.let {
+                bindData(it)
             }
             uiState.errorApp?.let {
-
             }
             if (uiState.isLoading) {
                 Log.d("@dev", "Loading...")
@@ -45,7 +45,6 @@ class MovieDetailActivity : AppCompatActivity() {
             }
         }
         viewModel.uiState.observe(this, movieObserver)
-
     }
 
     private fun getMovieId(): String? {
