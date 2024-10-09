@@ -75,13 +75,12 @@ class MoviesFragment : Fragment() {
         binding.movieId3.text = movies[2].id
         binding.movieTitle3.text = movies[2].title
         binding.layout3.setOnClickListener {
-            navigateToMovieDetail(movies[2].id)
+            findNavController()
         }
-
         binding.movieId4.text = movies[3].id
         binding.movieTitle4.text = movies[3].title
         binding.layout4.setOnClickListener {
-            navigateToMovieDetail(movies[3].id)
+            findNavController()
         }
 
     }

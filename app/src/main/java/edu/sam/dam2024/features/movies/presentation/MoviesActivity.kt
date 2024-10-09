@@ -2,13 +2,8 @@ package edu.sam.dam2024.features.movies.presentation
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import edu.sam.dam2024.R
-import edu.sam.dam2024.app.domain.ErrorApp
-import edu.sam.dam2024.features.movies.domain.Movie
 
 class MoviesActivity : AppCompatActivity() {
 
@@ -22,10 +17,7 @@ class MoviesActivity : AppCompatActivity() {
         movieFactory = MovieFactory(this)
         viewModel = movieFactory.buildViewModel()
         viewModel.viewCreated()
-
     }
-
-
     override fun onStart() {
         super.onStart()
         Log.d("@dev", "onStart")

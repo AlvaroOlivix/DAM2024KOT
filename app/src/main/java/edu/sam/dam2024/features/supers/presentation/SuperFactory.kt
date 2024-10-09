@@ -7,18 +7,15 @@ import edu.sam.dam2024.features.supers.data.remote.SuperMockRemoteDataSource
 import edu.sam.dam2024.features.supers.domain.GetSuperUseCase
 import edu.sam.dam2024.features.supers.domain.GetSupersUseCase
 
-class SuperFactory (private val context: Context) {
+class SuperFactory(private val context: Context) {
     private val superMockRemoteDataSource = SuperMockRemoteDataSource()
     private val superLocal = SuperXmlLocalDataSource(context)
     private val superDataRepository = SuperDataRepository(superMockRemoteDataSource, superLocal)
     private val getSuperUseCase = GetSuperUseCase(superDataRepository)
     private val getSupersUseCase = GetSupersUseCase(superDataRepository)
 
-    fun buildViewModel(): SupersViewModel {
-        return SupersViewModel(getSupersUseCase)
-    }
-    fun buildSuperDetailViewModel(): SuperDetailViewModel {
-        return SuperDetailViewModel(getSuperUseCase)
-    }
+    fun getSupersListViewModel(): SupersListViewModel {
+    return SupersListViewModel(getSupersUseCase)
 
+    }
 }
