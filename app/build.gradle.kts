@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.android.navigation.kotlin)
+
 }
 
 android {
@@ -52,7 +54,7 @@ dependencies {
     implementation(libs.viewmodel.scope)
     implementation(libs.glide)
     implementation(libs.navFragment)
-    implementation(libs.nav.ui)
+    implementation(libs.nav.ui.ktx)
     implementation(libs.nav.fragment.ktx)
 
 

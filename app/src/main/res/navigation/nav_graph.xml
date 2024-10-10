@@ -3,16 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/movies_fragment">
+    app:startDestination="@+id/supers_fragment">
 
     <fragment
-        android:id="@+id/movies_fragment"
+        android:id="@+id/supers_fragment"
         android:name="edu.sam.dam2024.features.movies.presentation.MoviesFragment"
-        tools:layout="@layout/fragment_movies"
-        />
+        tools:layout="@layout/fragment_movies">
+        <action
+            android:id="@+id/action_supers_fragment_to_super_Detail_fragment"
+            app:destination="@id/super_Detail_fragment"
+            />
+
+    </fragment>
     <fragment
-        android:id="@+id/movie_Detail_fragment"
+        android:id="@+id/super_Detail_fragment"
         android:name="edu.sam.dam2024.features.movies.presentation.MovieDetailFragment"
-        tools:layout="@layout/fragment_movies"
-        />
+        tools:layout="@layout/super_detail_fragment" />
+
+
 </navigation>

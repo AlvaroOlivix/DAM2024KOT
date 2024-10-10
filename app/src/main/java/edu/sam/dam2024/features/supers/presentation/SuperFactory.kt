@@ -16,6 +16,5 @@ class SuperFactory(private val context: Context) {
 
     fun getSupersListViewModel(): SupersListViewModel {
     return SupersListViewModel(getSupersUseCase)
-
     }
 }
