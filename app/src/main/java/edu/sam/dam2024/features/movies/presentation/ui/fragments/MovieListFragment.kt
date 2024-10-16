@@ -1,4 +1,4 @@
-package edu.sam.dam2024.features.movies.presentation
+package edu.sam.dam2024.features.movies.presentation.ui.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -7,32 +7,29 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import edu.sam.dam2024.app.domain.ErrorApp
-import edu.sam.dam2024.databinding.FragmentMoviesBinding
-import edu.sam.dam2024.features.movies.domain.Movie
+import edu.sam.dam2024.databinding.FragmentMovieDetailBinding
+import edu.sam.dam2024.databinding.FragmentMovieListBinding
+import edu.sam.dam2024.features.movies.domain.model.Movie
+import edu.sam.dam2024.features.movies.presentation.factory.MovieFactory
+import edu.sam.dam2024.features.movies.presentation.viewModel.MovieListViewModel
 
-class MoviesFragment : Fragment() {
+class MovieListFragment : Fragment() {
 
     private lateinit var movieFactory: MovieFactory
-    private lateinit var viewModel: MoviesViewModel
+    private lateinit var viewModel: MovieListViewModel
     //Esta info se encuentra en https://developer.android.com/topic/libraries/view-binding?hl=es-419#kts
 
-    //El guión significa que nos crearemos una variable con el mismo nombre
-    private var _binding: FragmentMoviesBinding? = null
-
-    // Las !! ignora el nulo
+    //Se crea despues de que se creen los XML de cada clase
+    private var _binding: FragmentMovieListBinding? = null
     private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMoviesBinding.inflate(inflater, container, false)
-        return binding.root
-
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +42,7 @@ class MoviesFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        val movieObserver = Observer<MoviesViewModel.UiState> { uiState ->
+        val movieObserver = Observer<MovieListViewModel.UiState> { uiState ->
             uiState.movies?.let {
                 bindData(it)
             }
@@ -62,27 +59,6 @@ class MoviesFragment : Fragment() {
     }
 
     private fun bindData(movies: List<Movie>) {
-        binding.movieId1.text = movies[0].id
-        binding.movieTitle1.text = movies[0].title
-        binding.layout1.setOnClickListener {
-            findNavController()
-        }
-        binding.movieId2.text = movies[1].id
-        binding.movieTitle2.text = movies[1].title
-        binding.layout2.setOnClickListener {
-            findNavController()
-        }
-        binding.movieId3.text = movies[2].id
-        binding.movieTitle3.text = movies[2].title
-        binding.layout3.setOnClickListener {
-            findNavController()
-        }
-        binding.movieId4.text = movies[3].id
-        binding.movieTitle4.text = movies[3].title
-        binding.layout4.setOnClickListener {
-            findNavController()
-        }
-
     }
 
     private fun showError(error: ErrorApp) {
@@ -95,14 +71,10 @@ class MoviesFragment : Fragment() {
     }
 
     private fun navigateToMovieDetail(movieId: String) {
-        startActivity(MovieDetailActivity.getIntent(requireContext(), movieId))
-
+        startActivity(MovieDetailFragment.getIntent(requireContext(), movieId))
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
-
-        _binding = null
     }
 }

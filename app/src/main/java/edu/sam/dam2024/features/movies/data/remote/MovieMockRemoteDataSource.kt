@@ -1,6 +1,6 @@
 package edu.sam.dam2024.features.movies.data.remote
 
-import edu.sam.dam2024.features.movies.domain.Movie
+import edu.sam.dam2024.features.movies.domain.model.Movie
 
 /*
    Naming: Modelo + Tecnología + RemoteDataSource

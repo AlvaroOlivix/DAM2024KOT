@@ -1,13 +1,12 @@
-package edu.sam.dam2024.features.movies.presentation
+package edu.sam.dam2024.features.movies.presentation.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.sam.dam2024.app.domain.ErrorApp
-import edu.sam.dam2024.features.movies.domain.GetMovieUseCase
-import edu.sam.dam2024.features.movies.domain.Movie
-import edu.sam.dam2024.features.movies.presentation.MoviesViewModel.UiState
+import edu.sam.dam2024.features.movies.domain.usecases.GetMovieUseCase
+import edu.sam.dam2024.features.movies.domain.model.Movie
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

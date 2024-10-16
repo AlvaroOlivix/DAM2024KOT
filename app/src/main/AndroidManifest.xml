@@ -16,7 +16,7 @@
             android:name=".features.movies.presentation.MovieDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".features.movies.presentation.MoviesActivity"
+            android:name=".features.movies.presentation.ui.activity.MoviesActivity"
             android:exported="true">
 
         </activity>

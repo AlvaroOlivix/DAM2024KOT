@@ -1,6 +1,5 @@
 package edu.sam.dam2024.features.supers.data.remote
 
-import edu.sam.dam2024.features.movies.domain.Movie
 import edu.sam.dam2024.features.supers.domain.Super
 
 // Esta clase es un mock de la fuente de datos remota

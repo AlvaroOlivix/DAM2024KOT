@@ -1,10 +1,9 @@
 package edu.sam.dam2024.features.movies.data.local
 
-import android.annotation.SuppressLint
 import android.content.Context
 import com.google.gson.Gson
 import edu.sam.dam2024.R
-import edu.sam.dam2024.features.movies.domain.Movie
+import edu.sam.dam2024.features.movies.domain.model.Movie
 
 // Naming : Modelo + Tecnología (Ficheros XML) + LocalDataSource
 class MovieXmlLocalDataSource(private val context: Context) {

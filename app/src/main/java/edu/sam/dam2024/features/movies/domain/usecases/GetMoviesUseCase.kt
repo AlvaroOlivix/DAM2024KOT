@@ -1,4 +1,7 @@
-package edu.sam.dam2024.features.movies.domain
+package edu.sam.dam2024.features.movies.domain.usecases
+
+import edu.sam.dam2024.features.movies.domain.model.Movie
+import edu.sam.dam2024.features.movies.domain.MovieRepository
 
 /*
 Naming: Verbo(Accion) + UseCase
