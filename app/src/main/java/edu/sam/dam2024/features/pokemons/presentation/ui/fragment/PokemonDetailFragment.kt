@@ -39,11 +39,11 @@ class PokemonDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         pokemonFactory = PokemonFactory(requireContext())
         viewModel = pokemonFactory.buildPokemonDetailViewModel()
-        setUpObserver()
+
         getPokemonId()?.let{
             viewModel.loadPokemonDetail(it)
         }
-
+        setUpObserver()
     }
 
     private fun setUpObserver() {

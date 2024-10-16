@@ -40,9 +40,10 @@ class PokemonListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pokemonFactory = PokemonFactory(requireContext())
-        viewModel  = pokemonFactory.buildPokemonListViewModel()
-        viewModel.loadPokemonList()
+        viewModel = pokemonFactory.buildPokemonListViewModel()
         setUpObserver()
+        viewModel.loadPokemonList()
+
     }
 
     private fun setUpObserver() {
@@ -82,7 +83,7 @@ class PokemonListFragment : Fragment() {
     }
 
     private fun bindData(pokemonList: List<Pokemon>) {
-
+        pokemonAdapter.submitList(pokemonList)
     }
 
     private fun showError(errorApp: ErrorApp) {
