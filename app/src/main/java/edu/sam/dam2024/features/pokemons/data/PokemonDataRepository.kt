@@ -3,7 +3,7 @@ package edu.sam.dam2024.features.pokemons.data
 import edu.sam.dam2024.features.pokemons.data.local.PokemonXmlLocalDataSource
 import edu.sam.dam2024.features.pokemons.data.remote.PokemonMockRemoteDataSource
 import edu.sam.dam2024.features.pokemons.domain.models.Pokemon
-import edu.sam.dam2024.features.pokemons.domain.repository.PokemonRepository
+import edu.sam.dam2024.features.pokemons.domain.PokemonRepository
 
 class PokemonDataRepository(
     private val localDataSource: PokemonXmlLocalDataSource,

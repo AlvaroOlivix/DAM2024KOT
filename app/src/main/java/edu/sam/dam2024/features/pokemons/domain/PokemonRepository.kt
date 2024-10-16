@@ -1,4 +1,4 @@
-package edu.sam.dam2024.features.pokemons.domain.repository
+package edu.sam.dam2024.features.pokemons.domain
 
 import edu.sam.dam2024.features.pokemons.domain.models.Pokemon
 
