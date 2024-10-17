@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".features.pokemons.presentation.ui.fragment.PokemonListFragment">
+    tools:context=".features.supers.presentation.SuperListFragment">
 
     <TextView
-        android:id="@+id/title_pokemon"
+        android:id="@+id/tittle_supers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="Supers"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,12 +20,13 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_pokemon"
+        android:id="@+id/list_item_movie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_pokemon"
-        tools:listitem="@layout/view_pokemon_item" />
+        app:layout_constraintTop_toBottomOf="@+id/tittle_supers"
+        tools:listitem="@layout/view_super_item" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

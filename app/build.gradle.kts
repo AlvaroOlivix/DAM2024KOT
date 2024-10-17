@@ -57,7 +57,7 @@ dependencies {
 
     implementation(libs.nav.fragment.ktx)
     implementation(libs.nav.ui)
-    api(libs.nav.fragment.ktx)
+    implementation(libs.nav.fragment.ktx)
 
 
     //Librerias de test

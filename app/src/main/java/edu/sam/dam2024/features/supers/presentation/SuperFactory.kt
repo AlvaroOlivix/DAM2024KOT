@@ -14,8 +14,8 @@ class SuperFactory (private val context: Context) {
     private val getSuperUseCase = GetSuperUseCase(superDataRepository)
     private val getSupersUseCase = GetSupersUseCase(superDataRepository)
 
-    fun buildViewModel(): SupersViewModel {
-        return SupersViewModel(getSupersUseCase)
+    fun buildViewModel(): SuperListViewModel {
+        return SuperListViewModel(getSupersUseCase)
     }
     fun buildSuperDetailViewModel(): SuperDetailViewModel {
         return SuperDetailViewModel(getSuperUseCase)
