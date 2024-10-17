@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.navigation.safeargs.kotlin)
 }
 
 android {
@@ -48,12 +49,15 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.gson.serializable)
-    implementation(libs.viewmodel.scope)
+    implementation(libs.gson.serializer)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter)
     implementation(libs.glide)
-    implementation(libs.navFragment)
-    implementation(libs.nav.ui)
+    implementation(libs.viewmodel.scope)
+
     implementation(libs.nav.fragment.ktx)
+    implementation(libs.nav.ui)
+    api(libs.nav.fragment.ktx)
 
 
     //Librerias de test
