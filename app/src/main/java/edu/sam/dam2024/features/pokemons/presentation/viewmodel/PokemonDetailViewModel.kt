@@ -10,8 +10,9 @@ import edu.sam.dam2024.features.pokemons.domain.usecases.GetPokemonUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class PokemonDetailViewModel(private val getPokemonUseCase: GetPokemonUseCase) : ViewModel() {
-
+class PokemonDetailViewModel(
+    private val getPokemonUseCase: GetPokemonUseCase)
+    : ViewModel() {
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
 
@@ -19,7 +20,7 @@ class PokemonDetailViewModel(private val getPokemonUseCase: GetPokemonUseCase) :
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             val pokemon = getPokemonUseCase.invoke(pokemonId)
-            _uiState.postValue(UiState(pokemon = pokemon))
+            _uiState.value = UiState(pokemon = pokemon)
         }
     }
 

@@ -51,15 +51,14 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation(libs.gson.serializer)
-
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter)
     implementation(libs.glide)
     implementation(libs.viewmodel.scope)
-
     implementation(libs.nav.fragment.ktx)
     implementation(libs.nav.ui)
     implementation(libs.nav.fragment.ktx)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
 
     //Librerias de test
