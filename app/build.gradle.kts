@@ -49,7 +49,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
     implementation(libs.gson.serializer)
+
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter)
     implementation(libs.glide)
@@ -57,7 +59,7 @@ dependencies {
 
     implementation(libs.nav.fragment.ktx)
     implementation(libs.nav.ui)
-    api(libs.nav.fragment.ktx)
+    implementation(libs.nav.fragment.ktx)
 
 
     //Librerias de test
