@@ -93,6 +93,7 @@ class PokemonListFragment : Fragment() {
     private fun navigateToDetail(pokemonId: String) {
         findNavController().navigate(
             PokemonListFragmentDirections.actionPokemonListFragmentToPokemonDetailFragment(pokemonId)
+
         )
     }
 

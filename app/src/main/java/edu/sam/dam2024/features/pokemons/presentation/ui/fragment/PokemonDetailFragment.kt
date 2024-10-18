@@ -1,7 +1,5 @@
 package edu.sam.dam2024.features.pokemons.presentation.ui.fragment
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -40,7 +38,7 @@ class PokemonDetailFragment : Fragment() {
         pokemonFactory = PokemonFactory(requireContext())
         viewModel = pokemonFactory.buildPokemonDetailViewModel()
 
-        getPokemonId()?.let{
+        getPokemonId()?.let {
             viewModel.loadPokemonDetail(it)
         }
         setUpObserver()
@@ -72,18 +70,8 @@ class PokemonDetailFragment : Fragment() {
             imgPokemon.loadUrl(pokemon.image)
         }
     }
+
     private fun getPokemonId(): String {
         return pokemonArgs.pokemonId
     }
-
-    companion object {
-        val KEY_POKEMON_ID = "key_pokemon_id"
-
-        fun getIntent(context: Context, pokemonId: String): Intent {
-            val intent = Intent(context, PokemonDetailFragment::class.java)
-            intent.putExtra(KEY_POKEMON_ID, pokemonId)
-            return intent
-        }
-    }
-
 }

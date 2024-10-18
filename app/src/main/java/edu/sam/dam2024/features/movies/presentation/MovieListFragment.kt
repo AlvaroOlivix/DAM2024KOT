@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.sam.dam2024.app.domain.ErrorApp
 import edu.sam.dam2024.databinding.FragmentMovieListBinding
 import edu.sam.dam2024.features.movies.domain.Movie
+import edu.sam.dam2024.features.movies.presentation.adapter.MovieAdapter
 
 class MovieListFragment : Fragment() {
 
@@ -20,6 +22,7 @@ class MovieListFragment : Fragment() {
     private var _binding: FragmentMovieListBinding? = null
     private val binding get() = _binding!!
 
+    private val movieAdapter = MovieAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +30,7 @@ class MovieListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMovieListBinding.inflate(inflater, container, false)
-        //setUpView()
+        setUpView()
         return binding.root
     }
 
@@ -36,7 +39,7 @@ class MovieListFragment : Fragment() {
 
         movieFactory = MovieFactory(requireContext())
         viewModel = movieFactory.buildViewModel()
-        //setUpObserver()
+        setUpObserver()
         viewModel.viewCreated()
 
 
@@ -45,7 +48,7 @@ class MovieListFragment : Fragment() {
     private fun setUpObserver() {
         val movieListObserver = Observer<MoviesViewModel.UiState> { uiState ->
             uiState.movies?.let {
-                //bindData(it)
+                bindData(it)
             }
             uiState.errorApp?.let {
                 //Pinta el error
@@ -71,10 +74,28 @@ class MovieListFragment : Fragment() {
                 LinearLayoutManager.VERTICAL,
                 false
             )
-            // listItemMovie.adapter = movieAdapter
+            movieAdapter.setOnClick { movieId ->
+                navigateToDetail(movieId)
+            }
+            listItemMovie.adapter = movieAdapter
         }
+    }
+
+    private fun bindData(movieList: List<Movie>) {
+        movieAdapter.submitList(movieList)
+    }
+
+
+    private fun navigateToDetail(movieId: String) {
+        findNavController().navigate(
+            MovieListFragmentDirections.actionMovieListFragmentToMovieDetailFragment(movieId)
+        )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
 
 
-//Esta info se encuentra en https://developer.android.com/topic/libraries/view-binding?hl=es-419#kts
