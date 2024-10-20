@@ -7,7 +7,7 @@ class SuperApiRemoteDataSource(private val superService: SuperService) {
     suspend fun getSupers(): List<Super> {
         val response = superService.requestSupers()
         if (response.isSuccessful) {
-            return response.body() ?: emptyList()
+            return response.body()
         } else {
             // Manejar el error de la respuesta
             return emptyList()
